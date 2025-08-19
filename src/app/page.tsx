@@ -1,6 +1,23 @@
 import Image from "next/image";
+import { Effect } from "effect";
+import { Api } from "@/context/stackoverflow/services/Api";
+import { RuntimeServer } from "@/context/stackoverflow/services/RuntimeServer";
 
-export default function Home() {
+export const getConfig = async () => {
+    return {
+        render: "static",
+    };
+};
+
+const main = Effect.gen(function* () {
+    const api = yield* Api;
+    return yield* api.getPosts;
+});
+
+export default async function Home() {
+    const result = await RuntimeServer.runPromise(main);
+    console.log("Result:", result);
+
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">

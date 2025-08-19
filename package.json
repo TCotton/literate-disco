@@ -2,26 +2,41 @@
   "name": "literate-disco",
   "version": "0.1.0",
   "private": true,
+  "description": "A Next.js application using Effect for state management and schema validation.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0 < 23.0.0",
+    "pnpm": ">=10.0.0 < 11.0.0"
+  },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@effect/platform": "^0.90.4",
+    "@effect/platform-browser": "^0.70.0",
+    "@effect/platform-node": "^0.96.0",
+    "@effect/schema": "^0.75.5",
+    "effect": "^3.17.7",
+    "next": "15.4.7",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.4.7"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@effect/vitest": "^0.25.1",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.4.7",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "tsx": "^4.20.4",
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   }
 }
